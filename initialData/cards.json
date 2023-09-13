@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Caesar Selections",
+    "description": "CLorem, deren, trataro, filede, nerada",
+    "imageUrl": "../Image/greek-salad.jpg",
+    "imageAlt": "Caesar Selections",
+    "price": "69",
+    "category":"Salads"
+  },
+  {
+    "title": "Spinach Salad",
+    "description": "Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette",
+    "imageUrl": "../Image/spinach-salad.jpg",
+    "imageAlt": "Spinach Salad",
+    "price": "53",
+    "category":"Salads" 
+  },
+  {
+    "title": "Greek Salad",
+    "description": "Fresh spinach, crisp romaine, tomatoes, and Greek olives",
+    "imageUrl": "../Image/PHOTO-2022-01-18-22-08-01_1.jpg",
+    "imageAlt": "Greek Salad",
+    "price": "57",
+    "category":"Salads"
+  },
+  {
+    "title": "home Bread",
+    "description": "Fresh spinach, crisp romaine, tomatoes, and Greek olives",
+    "imageUrl": "../Image/bread-barrel.jpg",
+    "imageAlt": "home Bread",
+    "price": "43",
+    "category":"Main dishes"
+  },
+  {
+    "title": "Sweet potato ravioli",
+    "description": "Ravioli filled with sweet potato with cream sauce",
+    "imageUrl": "../Image/PHOTO-2022-01-18-22-08-02_1.jpg",
+    "imageAlt": "home Bread",
+    "price": "65",
+    "category":"Main dishes"
+  },
+  {
+    "title": "The house focaccia",
+    "description": "Homemade focaccia with dips",
+    "imageUrl": "../Image/PHOTO-2022-01-18-22-08-05_1.jpg",
+    "imageAlt": "The house focaccia",
+    "price": "39",
+    "category":"Main dishes"
+  },
+  {
+    "title": "Cigar fish",
+    "description": "Fish cigar - filled with mullet fish with lemon puree",
+    "imageUrl": "../Image/PHOTO-2022-01-18-22-08-04_2.jpg",
+    "imageAlt": "Cigar fish",
+    "price": "65",
+    "category":"Main dishes"
+  },
+  {
+    "title": "Pena",
+    "description": "Pena in a rich mushroom sauce with parmesan",
+    "imageUrl": "../Image/pexels-engin-akyurt-1438672.jpg",
+    "imageAlt": "Cigar fish",
+    "price": "72",
+    "category":"Main dishes"
+  },
+  {
+    "title": "Fettuccine",
+    "description": "Fettuccine in pesto cream sauce",
+    "imageUrl": "../Image/pexels-engin-akyurt-1435896.jpg",
+    "imageAlt": "Cigar fish",
+    "price": "78",
+    "category":"Main dishes"
+  },
+  {
+    "title": "Cappuccino",
+    "description": "Hot and indulgent coffee with milk / soy milk",
+    "imageUrl": "../Image/pexels-chevanon-photography-302899.jpg",
+    "imageAlt": "Cigar fish",
+    "price": "22",
+    "category":"drinking"
+  },
+  {
+    "title": "Mint drink",
+    "description": "A refreshing mint drink",
+    "imageUrl": "../Image/pexels-evg-kowalievska-1187766.jpg",
+    "imageAlt": "Cigar fish",
+    "price": "12",
+    "category":"drinking"
+  },
+  {
+    "title": "Orange drink",
+    "description": "A refreshing, naturally squeezed orange drink",
+    "imageUrl": "../Image/pexels-isabella-mendes-338713.jpg",
+    "imageAlt": "Cigar fish",
+    "price": "15",
+    "category":"drinking"
+  },
+  {
+    "title": "Beer",
+    "description": "Beer drink with 12% alcohol",
+    "imageUrl": "../Image/pexels-prem-pal-singh-tanwar-602750.jpg",
+    "imageAlt": "Cigar fish",
+    "price": "26",
+    "category":"drinking"
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "firstName": "john",
+    "lastName": "wich",
+    "phone": "0500000000",
+    "email": "john@gmail.com",
+    "password": "Aa123456!",
+    "city": "Ashkeluna",
+    "street": "nof ha hof",
+    "houseNumber": 255,
+    "recommendations":"Warmest recommendation, quality restaurant with fresh and delicious food",
+    "isAdmin": false,
+    "isBusiness": false
+  },
+  {
+    "firstName": "john",
+    "lastName": "sinay",
+    "phone": "0500000000",
+    "email": "johnsinay@gmail.com",
+    "password": "Aa123456!",
+    "city": "Ashkeluna",
+    "street": "nof ha hof",
+    "recommendations":"Bomb service, delicious food and a good atmosphere",
+    "houseNumber": 255,
+    "isAdmin": true,
+    "isBusiness": false
+  },
+  {
+    "firstName": "kenny",
+    "lastName": "mc",
+    "phone": "0500000000",
+    "email": "kenny@gmail.com",
+    "password": "Aa123456!",
+    "city": "Ashkeluna",
+    "street": "nof ha hof",
+    "recommendations":"A very high level chef restaurant, food at another level",
+    "houseNumber": 255,
+    "isAdmin": false,
+    "isBusiness": true
+  }, {
+    "firstName": "malki",
+    "lastName": "mc",
+    "phone": "0500000000",
+    "email": "malki@gmail.com",
+    "password": "Aa123456!",
+    "city": "Ashkeluna",
+    "street": "nof ha hof",
+    "recommendations":"Chef Bara restaurant is very high food on another level",
+    "houseNumber": 255,
+    "isAdmin": true,
+    "isBusiness": true
+  }
+]

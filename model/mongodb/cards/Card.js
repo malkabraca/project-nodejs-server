@@ -1,23 +1,11 @@
 const mongoose = require("mongoose");
-const Image = require("./Image");
-const Address = require("./Address");
 const {
-  URL,
   DEFAULT_STRING_SCHEMA_REQUIRED,
 } = require("./helpers/mongooseValidation");
 
 const cardSchema = new mongoose.Schema({
   title: DEFAULT_STRING_SCHEMA_REQUIRED,
   description: { ...DEFAULT_STRING_SCHEMA_REQUIRED, maxLength: 1024 },
-  // imageUrl: {
-  //   type: String,
-  //   match: RegExp(
-  //     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
-  //   ),
-  //   trim: true,
-  //   default:
-  //     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-  // },
   imageUrl: {
     type: String,
     validate: {
@@ -53,7 +41,6 @@ const cardSchema = new mongoose.Schema({
   },
   category: DEFAULT_STRING_SCHEMA_REQUIRED,
   likes: [String],
-  // menuOrder: [String],
   createdAt: {
     type: Date,
     default: Date.now,

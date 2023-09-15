@@ -1,6 +1,4 @@
 const express = require("express");
-const { google } = require("googleapis");
-const { OAuth2Client } = require("google-auth-library");
 const router = express.Router();
 const hashService = require("../../utils/hash/hashService");
 const {
@@ -9,9 +7,7 @@ const {
   idUserValidation,
   recommendationValidation,
   ProfailValidation,
-  // recommendationValidation,
 } = require("../../validation/authValidationService");
-const normalizeUser = require("../../model/usersService/helpers/normalizationUserService");
 const usersServiceModel = require("../../model/usersService/usersService");
 const { generateToken } = require("../../utils/token/tokenService");
 const CustomError = require("../../utils/CustomError");
@@ -25,12 +21,9 @@ router.post("/users", async (req, res) => {
     
     await registerUserValidation(req.body);
     req.body.password = await hashService.generateHash(req.body.password);
-    // req.body = normalizeUser(req.body);
-    // console.log("normal",req.body);
     await usersServiceModel.registerUser(req.body);
     res.json({ msg: "register" });
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -55,7 +48,6 @@ router.post("/users/login", async (req, res) => {
     });
     res.json({ token });
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -64,8 +56,6 @@ router.post("/users/login", async (req, res) => {
 //http://localhost:8181/api/auth/users
 router.get(
   "/users",
-  // authmw,
-  // permissionsMiddlewareUser(false, true, false),
   async (req, res) => {
     try {
       const userData = await usersServiceModel.getAllUsers();
@@ -98,39 +88,36 @@ router.get(
 router.put(
   "/users/:id",
   authmw,
-  permissionsMiddlewareUser(false, false, true),
+  permissionsMiddlewareUser(false, true, true),
   async (req, res) => {
     try {
       await idUserValidation(req.params.id);
       await ProfailValidation(req.body);
-      // req.body.password = await hashService.generateHash(req.body.password);
-      //  req.body = normalizeUser(req.body);
       await usersServiceModel.updateUser(req.params.id,req.body);
       res.json({ msg: "Editing was done successfully" });
     } catch (err) {
-      console.log(err);
       res.status(400).json(err);
     }
   }
 );
 
-// Edit is biz user
+// Edit is admin user
 // http://localhost:8181/api/auth/users/:id
 router.patch(
   "/users/:id",
   authmw,
-  permissionsMiddlewareUser(false, false, true),
+  permissionsMiddlewareUser(false,true, true),
   async (req, res) => {
     try {
       await idUserValidation(req.params.id);
       const bizUserID = req.params.id;
       let userData = await usersServiceModel.getUserdById(bizUserID);
-      if (userData.isBusiness === true) {
-        userData.isBusiness = false;
+      if (userData.isAdmin === true) {
+        userData.isAdmin = false;
         userData = await userData.save();
         res.json({ msg: "Editing was done false successfully" });
       } else {
-        userData.isBusiness = true;
+        userData.isAdmin = true;
         userData = await userData.save();
         res.json({ msg: "Editing was done true successfully" });
       }
@@ -148,11 +135,8 @@ router.delete(
   permissionsMiddlewareUser(false, true, true),
   async (req, res) => {
     try {
-      // await registerUserValidation(req.body);
-      // req.body.password = await hashService.generateHash(req.body.password);
-      // req.body = normalizeUser(req.body);
       await idUserValidation(req.params.id);
-      await usersServiceModel.deleteUser(req.body);
+      await usersServiceModel.deleteUser(req.params.id);
       res.json({ msg: "delete" });
     } catch (err) {
       res.status(400).json(err);
@@ -173,11 +157,8 @@ router.patch(
         req.params.id,
         req.body
       );
-      console.log("updatedCard",updatedCard);
-      // updatedCard = await updatedCard.save();
       res.json(updatedCard);
     } catch (err) {
-      console.log("err", err);
       res.status(400).json(err);
     }
   }

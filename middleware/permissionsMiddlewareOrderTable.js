@@ -16,16 +16,12 @@ const checkIfBizOwner = async (iduser, idOrder, res, next) => {
       res.status(401).json({ msg: "you not the biz owner" });
     }
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 };
 
 const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
   return (req, res, next) => {
-     console.log(req.userData);
-    console.log("parms", req.params.id);
-    console.log("user", req.userData._id);
     if (!req.userData) {
       throw new CustomError("must provide userData");
     }
@@ -35,7 +31,6 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
     if (isAdmin === req.userData.isAdmin && isAdmin === true) {
       return next();
     }
-    // if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
       if (isBizOwner === true) {
       return checkIfBizOwner(req.userData._id, req.params.id, res, next);
     }

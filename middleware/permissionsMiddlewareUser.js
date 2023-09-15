@@ -1,17 +1,9 @@
 const CustomError = require("../utils/CustomError");
 const jwt = require("jsonwebtoken");
 
-/*
-  isBiz = every biz
-  isAdmin = is admin
-  isBizOwner = biz owner
-*/
-
 const permissionsMiddlewareUser = (isBiz, isAdmin, isOwner) => {
+
   return (req, res, next) => {
-    // console.log(req.userData);
-    // console.log("parms", req.params.id);
-    // console.log("user", req.userData._id);
     if (!req.userData) {
       throw new CustomError("must provide userData");
     }
@@ -26,7 +18,6 @@ const permissionsMiddlewareUser = (isBiz, isAdmin, isOwner) => {
     }
     if (req.params.id === req.userData._id && isOwner === true) {
       return next();
-      //return checkIfOwner(req, res, next, req.params.id);
     }
     res
       .status(401)

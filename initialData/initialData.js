@@ -1,7 +1,6 @@
 const usersService = require("../model/usersService/usersService");
 const cardsService = require("../model/cardsService/cardsService");
 const hashService = require("../utils/hash/hashService");
-// const normalizeUser = require("../model/usersService/helpers/normalizationUserService");
 const normalizeCard = require("../model/cardsService/helpers/normalizationCardService");
 
 const usersData = require("./users.json");
@@ -21,7 +20,6 @@ const initialData = async () => {
     let user_id = "";
     for (let user of usersData) {
       user.password = await hashService.generateHash(user.password);
-      // user = normalizeUser(user);
       user_id = await usersService.registerUser(user);
     }
     user_id = user_id._id + "";

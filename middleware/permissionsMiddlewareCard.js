@@ -3,7 +3,6 @@ const { getCardById } = require("../model/cardsService/cardsService");
 
 const checkIfBizOwner = async (iduser, idcard, res, next) => {
   try {
-    //! joi the idcard
     const cardData = await getCardById(idcard);
     if (!cardData) {
       return res.status(400).json({ msg: "" });
@@ -11,8 +10,6 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
     if (cardData.user_id == iduser) {
       next();
     } else {
-      console.log("cardData",cardData.user_id)
-      console.log("iduser",iduser);
       res.status(401).json({ msg: "you not the biz owner" });
     }
   } catch (err) {
@@ -20,11 +17,6 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
   }
 };
 
-/*
-  isBiz = every biz
-  isAdmin = is admin
-  isBizOwner = biz owner
-*/
 
 const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
   return (req, res, next) => {
@@ -37,7 +29,6 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
     if (isAdmin === req.userData.isAdmin && isAdmin === true) {
       return next();
     }
-    // if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
       if (isBizOwner === true) {
       return checkIfBizOwner(req.userData._id, req.params.id, res, next);
     }

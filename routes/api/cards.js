@@ -49,7 +49,6 @@ router.post("/", authmw, async (req, res) => {
     const dataFromMongoose = await cardsServiceModel.createCard(normalCard);
     res.json({ msg: "The card has been successfully received" });
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -63,18 +62,12 @@ router.put(
       await cardsValidationService.createCardValidation(req.body);
       await idUserValidation(req.params.id);
       let normalCard = await normalizeCard(req.body, req.userData._id);
-      // const cardFromDB = await cardsServiceModel.getCardById(req.params.id);
-      // if (req.body.bizNumber !== cardFromDB.bizNumber) {
-      //   return res.status(400).json({ message: "Cannot update bizNumber" });
-      // }
-      // delete req.body.bizNumber;
       const updatedCard = await cardsServiceModel.updateCard(
         req.params.id,
         normalCard
       );
       res.json(updatedCard);
     } catch (err) {
-      console.log("err", err);
       res.status(400).json(err);
     }
   }
@@ -101,7 +94,6 @@ router.patch("/like/:id", authmw, async (req, res) => {
     }
     res.json(cardLike);
   } catch (err) {
-    console.log("Could not edit like:", err.message);
     res.status(500).json(err);
   }
 });

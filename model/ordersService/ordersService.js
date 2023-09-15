@@ -50,13 +50,6 @@ const getOrdersByUserIdFindOne = (userId) => {
   }
 };
 
-
-// const findIdMenuOrder = (cardId) => {
-//   if (dbOption === "mongo") {
-//     return ordersServiceMongo.findIdMenuOrder(cardId);
-//   }
-// };
-
 module.exports = {
   createOrders,
   getAllOrders,

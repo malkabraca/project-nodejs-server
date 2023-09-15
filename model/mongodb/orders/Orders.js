@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
-const Name = require("./Name");
-const Address = require("./Address");
 
 const schema = new mongoose.Schema({
-  // name: Name,
   name: {
     type: String,
     required: true,
@@ -23,7 +20,6 @@ const schema = new mongoose.Schema({
     trim: true,
     unique: true,
   },
-  // address: Address,
   city: {
     type: String,
     maxLength: 256,
@@ -44,7 +40,6 @@ const schema = new mongoose.Schema({
     trim: true,
     minLength: 1,
   },
-  // isBusiness: { type: Boolean, default: false },
   takeAway: { type: Boolean, default: false },
   orderStatus: { type: Boolean, default: false },
   createdAt: {
@@ -58,7 +53,6 @@ const schema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  // menuOrder: [String],
   menuOrder: [[]],
   user_id: {
     type: mongoose.Schema.Types.ObjectId,

@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
-// const Name = require("./Name");
-// const Address = require("./Address");
-// const Image = require("./Image");
+
 
 const schema = new mongoose.Schema({
-  // name: Name,
   firstName: {
     type: String,
     required: true,
@@ -100,22 +97,6 @@ const schema = new mongoose.Schema({
     default:
       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
   },
-  // imageUrl: {
-  //   type: String,
-  //   match: RegExp(
-  //     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
-  //   ),
-  //   trim: true,
-  //   // default:
-  //   //   "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-  // },
-  // imageAlt: {
-  //   type: String,
-  //   maxLength: 256,
-  //   trim: true,
-  //   // default:
-  //   //   "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-  // },
   city: {
     type: String,
     required: true,
@@ -134,12 +115,6 @@ const schema = new mongoose.Schema({
     minlength: 1,
     maxlength: 256,
   },
-  // zip: {
-  //   type: Number,
-  //   trim: true,
-  //   minLength: 4,
-  //   default: 0,
-  // },
   recommendations: {
     type: String,
     maxLength: 256,

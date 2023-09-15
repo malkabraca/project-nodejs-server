@@ -32,10 +32,6 @@ const getOrdersByUserIdFindOne = async(userId) => {
   return await Orders.findOne({ user_id: userId })
   .sort({ createdAt: -1 }).limit(1);
 };
-// const findIdMenuOrder = (cardId)=>{
-// return Orders.find(
-//   { menuOrder: { $elemMatch: { $eq: [null,cardId] } } })
-// };
 
 
 module.exports = {

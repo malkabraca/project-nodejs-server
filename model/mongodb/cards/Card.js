@@ -40,7 +40,6 @@ const cardSchema = new mongoose.Schema({
     trim: true,
   },
   category: DEFAULT_STRING_SCHEMA_REQUIRED,
-  likes: [String],
   createdAt: {
     type: Date,
     default: Date.now,

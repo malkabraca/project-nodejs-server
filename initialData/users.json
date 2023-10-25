@@ -9,8 +9,7 @@
     "street": "nof ha hof",
     "houseNumber": 255,
     "recommendations":"Warmest recommendation, quality restaurant with fresh and delicious food",
-    "isAdmin": false,
-    "isBusiness": false
+    "isAdmin": false
   },
   {
     "firstName": "john",
@@ -22,8 +21,7 @@
     "street": "nof ha hof",
     "recommendations":"Bomb service, delicious food and a good atmosphere",
     "houseNumber": 255,
-    "isAdmin": true,
-    "isBusiness": false
+    "isAdmin": true
   },
   {
     "firstName": "kenny",
@@ -35,8 +33,7 @@
     "street": "nof ha hof",
     "recommendations":"A very high level chef restaurant, food at another level",
     "houseNumber": 255,
-    "isAdmin": false,
-    "isBusiness": true
+    "isAdmin": false
   }, {
     "firstName": "malki",
     "lastName": "mc",
@@ -47,7 +44,6 @@
     "street": "nof ha hof",
     "recommendations":"Chef Bara restaurant is very high food on another level",
     "houseNumber": 255,
-    "isAdmin": true,
-    "isBusiness": true
+    "isAdmin": true
   }
 ]

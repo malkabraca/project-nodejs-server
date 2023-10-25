@@ -65,7 +65,6 @@ router.post("/", authmw, async (req, res) => {
     );
     res.json({ msg: "Reception order" });
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -99,10 +98,8 @@ router.get("/my-order-findOne/:id", authmw, async (req, res) => {
     const myCards = await ordersServiceModel.getOrdersByUserIdFindOne(
       req.params.id
     );
-    console.log("orderId", myCards?._id);
     res.json(myCards?._id);
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -111,14 +108,12 @@ router.get("/my-order-findOne/:id", authmw, async (req, res) => {
 //http://localhost:8181/api/orders/my-allorder-findOne
 router.get("/my-allorder-findOne/:id", authmw, async (req, res) => {
   try {
-    // console.log("body", req.params.id);
     await idUserValidation(req.params.id);
     const myCards = await ordersServiceModel.getOrdersByUserIdFindOne(
       req.params.id
     );
     res.json(myCards);
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -128,7 +123,6 @@ router.patch("/menuOrder/:id", authmw, async (req, res) => {
   try {
     await idUserValidation(req.params.id);
     const orderId = req.params.id;
-    // console.log(orderId);
     let cardLike = await ordersServiceModel.getOrdersdById(orderId);
 
     if (cardLike.menuOrder.find((cardId) => cardId[1] == req.body.card_id)) {
@@ -146,8 +140,6 @@ router.patch("/menuOrder/:id", authmw, async (req, res) => {
     }
     res.json(cardLike);
   } catch (err) {
-    console.log("Could not edit like:", err.message);
-    console.log("erooooo", err);
     res.status(400).json(err);
   }
 });
@@ -167,7 +159,6 @@ router.patch(
       }, 1 * 60 * 1000);
       res.json({ msg: "An order is currently in the works" });
     } catch (err) {
-      console.log(err);
       res.status(400).json(err);
     }
   }
@@ -186,7 +177,6 @@ router.patch(
       await order.save();
       res.json({ msg: "An order is currently in the works" });
     } catch (err) {
-      console.log(err);
       res.status(400).json(err);
     }
   }
@@ -205,7 +195,6 @@ router.patch(
       await order.save();
       res.json({ msg: "An order is currently in the works" });
     } catch (err) {
-      console.log(err);
       res.status(400).json(err);
     }
   }

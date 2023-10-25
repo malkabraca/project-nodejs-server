@@ -44,7 +44,6 @@ router.post("/users/login", async (req, res) => {
     const token = await generateToken({
       _id: userData._id,
       isAdmin: userData.isAdmin,
-      isBusiness: userData.isBusiness,
     });
     res.json({ token });
   } catch (err) {

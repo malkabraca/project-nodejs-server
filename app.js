@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/admin", express.static(path.join(__dirname, "admin")));
 initialData();
-app.use("/api", apiRouter);
+app.use("https://clint-dgar.onrender.com/api", apiRouter);
 app.use(express.static(path.join(__dirname, "public")));
 app.use((req, res, next) => {
   res.status(404).json({ err: "page not found" });

@@ -12,9 +12,9 @@ const app = express();
 console.log("file", config.get("file"));
 
 // app.use(cors());
-app.use(cors({
-  origin: 'https://clint-dgar.onrender.com'
-}));
+// app.use(cors({
+//   origin: 'https://clint-dgar.onrender.com'
+// }));
 
 app.use(logger)
 app.use(express.json());

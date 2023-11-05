@@ -9,7 +9,7 @@ const {NODE_ENV, DATABASE_URL_MONGO } = process.env;
 // };
 const connectToDB = () => {
   return mongoose.connect(
-  NODE_ENV === 'production' ? DATABASE_URL_MONGO : 'mongodb://127.0.0.1:27017/final_project',
+  NODE_ENV === 'development' ? DATABASE_URL_MONGO : 'mongodb://127.0.0.1:27017/final_project',
 );
 }
 module.exports = connectToDB;

@@ -11,7 +11,7 @@ const app = express();
 
 console.log("file", config.get("file"));
 
-// app.use(cors());
+app.use(cors());
 app.use(logger)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
